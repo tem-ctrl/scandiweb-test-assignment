@@ -15,7 +15,4 @@ abstract class AbstractProduct
     $dbObj = new DbConnect;
     $this->dbConn = $dbObj->connect();
   }
-
-  abstract protected function save(): void;
-  abstract protected function getData(): void;
 }

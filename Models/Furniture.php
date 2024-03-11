@@ -6,8 +6,6 @@ use App\Models\AbstractProduct;
 
 class Furniture extends AbstractProduct
 {
-  use ProductTrait;
-
   protected float $height;
   protected float $width;
   protected float $length;

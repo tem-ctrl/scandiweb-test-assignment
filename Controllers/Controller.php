@@ -3,8 +3,8 @@ namespace App\Controllers;
 
 class Controller
 {
-  public function save($data): void
-  {
+  // public function save($data): void
+  // {
     
-  }
+  // }
 }
