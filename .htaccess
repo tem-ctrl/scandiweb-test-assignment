@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Deliver the folder or file directly if it exists on the server
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Redirect every request to index.php
+RewriteRule ^ index.php [L]
+

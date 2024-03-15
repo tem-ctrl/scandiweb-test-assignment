@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\DbConnect;
+namespace App\Database;
 
 class DbConnect
 {
@@ -21,7 +21,7 @@ class DbConnect
   public function connect(): \PDO
   {
     try {
-      $conn = new \PDO("mysql:host=$this->host;dbName=$this->dbName", $this->username, $this->password);
+      $conn = new \PDO("mysql:host=$this->host;dbname=$this->dbName", $this->username, $this->password);
       $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
       return $conn;
     } catch (\Exception $e) {

@@ -1,13 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1); // Set it to 0 in production
-require_once 'vendor/autoload.php';
-
-// use App\App;
-
-// $app = new App();
-// $app->run();
+namespace App;
 
 use Dotenv\Dotenv;
 use App\Utils\Headers;
@@ -38,6 +31,3 @@ class App
     $this->setroutes();
   }
 }
-
-$app = new App();
-$app->run();

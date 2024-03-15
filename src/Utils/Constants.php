@@ -1,23 +1,22 @@
-<?php 
-declare(strict_types=1);
-namespace App\Utils;
+<?php
 
-class Constants 
+declare(strict_types=1);
+
+namespace App\Utils;
+use App\Utils\ProductType;
+
+class Constants
 {
+  const EXTRA_ATTRIBUTE_KEY = 'attributes';
+
   const PROPERTY_MAP =
   [
-    'dvd' => [
-      'attributes'=> ['size']
-    ],
-    'book' => [
-      'attributes' => ['weight']
-    ],
-    'furniture' => [
-      'attributes' => ['height', 'width', 'length']
-    ]
+    ProductType::DVD => ['size'],
+    ProductType::BOOK => ['weight'],
+    ProductType::FURNITURE => ['height', 'width', 'length'],
   ];
 
-  const HTTP_RESPONSES = 
+  const HTTP_RESPONSES =
   [
     'not-allowed' => [
       405,
@@ -42,6 +41,6 @@ class Constants
     'db-error' => [
       500,
       'Database error!'
-      ]
+    ]
   ];
 }
