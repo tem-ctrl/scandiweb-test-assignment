@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Models\Dvd;
 use App\Models\Book;
+use App\Utils\Constants;
 use App\Models\Furniture;
 use App\Database\DbConnect;
 use App\Utils\HttpResponse;
@@ -38,10 +39,10 @@ class Products
   public static function add(): void
   {
     $data = $_POST;
-    $p = ['price', 'size', 'weight', 'height', 'width', 'length'];
+    $p = array_merge(...array_values(Constants::PROPERTY_MAP));
     $keys = array_keys($data);
-    foreach ($p as $i) {
-      in_array($i, $keys) && $data[$i]  = (float) $data[$i];
+    foreach ($p as $k) {
+      in_array($k, $keys) && $data[$k]  = (float) $data[$k];
     }
 
     $class = "App\\Models\\" . ucfirst($data['type']);

@@ -6,17 +6,15 @@ use App\Database\DbConnect;
 
 abstract class AbstractProduct
 {
-  protected string $sku;
-  protected string $name;
-  protected string $type;
-  protected float $price;
   protected \PDO $dbConn;
 
-  public function __construct($sku, $name, $type, $price)
+  public function __construct(
+    protected string $sku,
+    protected string $name,
+    protected string $type,
+    protected float $price,
+  )
   {
-    $this->sku = $sku;
-    $this->name = $name;
-    $this->price = $price;
     $dbObj = new DbConnect;
     $this->dbConn = $dbObj->connect();
   }

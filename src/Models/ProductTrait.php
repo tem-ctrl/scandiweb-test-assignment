@@ -10,16 +10,11 @@ use App\Utils\ValidationSchema;
 
 trait ProductTrait
 {
+ 
   public function save(): void
   {
-    $data = $_POST;
-    $p = ['price', 'size', 'weight', 'height', 'width', 'length'];
-    $keys = array_keys($data);
-    foreach($p as $i) {
-      in_array($i, $keys) && $data[$i]  = (float) $data[$i];
-    }
-    $dbTable = $data['type'];
-
+    $data = $this->getData();
+    $dbTable = $this->type;
     $validationSchema = new ValidationSchema($dbTable);
     $isValid = $validationSchema->validate($data);
 
@@ -40,7 +35,7 @@ trait ProductTrait
     }
   }
 
-  public static function findAll(string $dbTable): array 
+  public static function findAll(string $dbTable): array
   {
     $dbObj = new DbConnect;
     $dbConn = $dbObj->connect();

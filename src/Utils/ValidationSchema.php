@@ -24,10 +24,9 @@ class ValidationSchema
     $types = [
       'sku' => Expect::string()->required(),
       'name' => Expect::string()->required(),
-      'price' => Expect::float()->required(),
-      'type' => Expect::anyOf(...array_keys(Constants::PROPERTY_MAP))
+      'price' => Expect::float()->required()
     ];
-    $productAttrs = $propertyMap[$this->productType]['attributes'];
+    $productAttrs = $propertyMap[$this->productType];
 
     foreach ($productAttrs as $attr) {
       $types[$attr] = Expect::float()->required();
