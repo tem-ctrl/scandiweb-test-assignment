@@ -2,19 +2,22 @@
 
 namespace App;
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1); // Set it to 0 in production
+
 use Dotenv\Dotenv;
 use App\Utils\Headers;
 use Bramus\Router\Router;
 
 class App
 {
-  private function loadEnvVariables(): void
+  private static function loadEnvVariables(): void
   {
-    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv = Dotenv::createImmutable(dirname(__DIR__));
     $dotenv->safeLoad();
   }
 
-  private function setroutes(): void
+  private static function setroutes(): void
   {
     $router = new Router();
     $router->setNamespace('App\Controllers');
@@ -24,10 +27,10 @@ class App
     $router->run();
   }
 
-  public function run(): void
+  public static function run(): void
   {
     Headers::set();
-    $this->loadEnvVariables();
-    $this->setroutes();
+    App::loadEnvVariables();
+    App::setroutes();
   }
 }
