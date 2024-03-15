@@ -16,14 +16,10 @@ class Products
   public static function get(): void
   {
     try {
-      $allProducts = [];
       $dvds = Dvd::getAll();
       $books = Book::getAll();
       $furnitures = Furniture::getAll();
-
-      foreach ([$dvds, $books, $furnitures] as $products) {
-        $allProducts = array_merge($allProducts, $products);
-      }
+      $allProducts = array_merge($dvds, $books, $furnitures);
 
       // Sort products by sku value
       usort($allProducts,  fn ($a, $b) =>  strcmp($a['sku'], $b['sku']));
