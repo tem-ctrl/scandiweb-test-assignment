@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Database\DbConnect;
+use App\Database\Db;
 use App\Utils\HttpResponse;
 use App\Utils\ValidationSchema;
 
 trait ProductTrait
 {
- 
+
   public function save(): void
   {
     $data = $this->getData();
@@ -37,8 +37,8 @@ trait ProductTrait
 
   public static function findAll(string $dbTable): array
   {
-    $dbObj = new DbConnect;
-    $dbConn = $dbObj->connect();
+    $db = new Db();
+    $dbConn = $db->connect();
 
     $sql = "SELECT * FROM $dbTable";
     $stmt = $dbConn->query($sql);

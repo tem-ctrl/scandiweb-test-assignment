@@ -39,7 +39,7 @@ class Furniture extends AbstractProduct
   {
     try {
       $type = ProductType::FURNITURE;
-      $furnitures = Furniture::findAll($type);
+      $furnitures = self::findAll($type);
       foreach ($furnitures as &$furniture) {
         $furniture += [Constants::EXTRA_ATTRIBUTE_KEY => $furniture['length'] . 'x' . $furniture['width'] . 'x' . $furniture['height'] . ' CM'];
         foreach (Constants::PROPERTY_MAP[$type] as $at) {
@@ -48,7 +48,7 @@ class Furniture extends AbstractProduct
       }
       return $furnitures;
     } catch (\Exception $e) {
-      Furniture::trowDbError($e);
+      self::trowDbError($e);
       return null;
     }
   }

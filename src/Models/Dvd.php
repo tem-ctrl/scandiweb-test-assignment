@@ -29,14 +29,14 @@ class Dvd extends AbstractProduct
   public static function getAll(): array | null
   {
     try {
-      $dvds = Dvd::findAll(ProductType::DVD);
+      $dvds = self::findAll(ProductType::DVD);
       foreach ($dvds as &$dvd) {
         $dvd += [Constants::EXTRA_ATTRIBUTE_KEY => $dvd['size'] . ' MB'];
         unset($dvd['size']);
       }
       return $dvds;
     } catch (\Exception $e) {
-      Dvd::trowDbError($e);
+      self::trowDbError($e);
       return null;
     }
   }

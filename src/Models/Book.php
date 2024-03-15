@@ -29,14 +29,14 @@ class Book extends AbstractProduct
   public static function getAll(): array | null
   {
     try {
-      $books = Book::findAll(ProductType::BOOK);
+      $books = self::findAll(ProductType::BOOK);
       foreach ($books as &$book) {
         $book += [Constants::EXTRA_ATTRIBUTE_KEY => $book['weight'] . ' KG'];
         unset($book['weight']);
       }
       return $books;
     } catch (\Exception $e) {
-      Book::trowDbError($e);
+      self::trowDbError($e);
       return null;
     }
   }

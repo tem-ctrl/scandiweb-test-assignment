@@ -3,25 +3,25 @@ declare(strict_types=1);
 
 namespace App\Database;
 
-class DbConnect
+class Db
 {
   private string $host;
-  private string $dbName;
-  private string $username;
-  private string $password;
+  private string $db;
+  private string $user;
+  private string $pwd;
   
   public function __construct()
   {
     $this->host = $_ENV['DB_HOSTNAME'];
-    $this->username = $_ENV['DB_USERNAME'];
-    $this->dbName = $_ENV['DB_NAME'];
-    $this->password = $_ENV['DB_PASSWORD'];
+    $this->user = $_ENV['DB_USERNAME'];
+    $this->db = $_ENV['DB_NAME'];
+    $this->pwd = $_ENV['DB_PASSWORD'];
   }
 
   public function connect(): \PDO
   {
     try {
-      $conn = new \PDO("mysql:host=$this->host;dbname=$this->dbName", $this->username, $this->password);
+      $conn = new \PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->pwd);
       $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
       return $conn;
     } catch (\Exception $e) {

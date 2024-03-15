@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Dvd;
+use App\Database\Db;
 use App\Models\Book;
 use App\Utils\Constants;
 use App\Models\Furniture;
-use App\Database\DbConnect;
 use App\Utils\HttpResponse;
 
 class Products
@@ -49,8 +49,8 @@ class Products
   public static function delete(): void
   {
     try {
-      $dbObj = new DbConnect;
-      $dbConn = $dbObj->connect();
+      $db = new Db();
+      $dbConn = $db->connect();
 
       $data = $_REQUEST;
 
