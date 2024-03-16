@@ -13,7 +13,7 @@ use App\Utils\HttpResponse;
 
 class Products
 {
-  public static function get(): void
+  public static function get(): array | string
   {
     try {
       $dvds = Dvd::getAll();
@@ -24,21 +24,22 @@ class Products
       // Sort products by sku value
       usort($allProducts,  fn ($a, $b) =>  strcmp($a['sku'], $b['sku']));
       // Replace response by view once ready
-      http_response_code(200);
-      echo json_encode($allProducts);
-      exit;
+      // http_response_code(200);
+      // echo json_encode($allProducts);
+      return $allProducts;
     } catch (\Exception $e) {
       HttpResponse::dbError($e->getMessage());
+      return $e -> getMessage();
     }
   }
 
   public static function add(): void
   {
     $data = $_POST;
-    $p = array_merge(...array_values(Constants::PROPERTY_MAP));
+    $floats = array_merge(...array_values(Constants::PROPERTY_MAP));
     $keys = array_keys($data);
-    foreach ($p as $k) {
-      in_array($k, $keys) && $data[$k]  = (float) $data[$k];
+    foreach ($floats as $f) {
+      in_array($f, $keys) && $data[$f]  = (float) $data[$f];
     }
 
     $class = "App\\Models\\" . ucfirst($data['type']);
@@ -51,8 +52,7 @@ class Products
     try {
       $db = new Db();
       $dbConn = $db->connect();
-
-      $data = $_REQUEST;
+      $data = $_POST;
 
       foreach (array_keys($data) as $db) {
         $skus = implode(',', array_map(fn ($item) => "'$item'", $data[$db]));

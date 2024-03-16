@@ -1,16 +1,15 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Controllers;
 
+use App\Routes\Router;
 use App\Models\Products;
 
-class ProductController
+class Controller
 {
   public static function getProducts(): void
   {
-    Products::get();
+    Router::get('index.html', ['products' => Products::get()]);
   }
 
   public static function addProduct(): void

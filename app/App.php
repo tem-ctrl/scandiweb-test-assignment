@@ -21,16 +21,16 @@ class App
   {
     $router = new Router();
     $router->setNamespace('App\Controllers');
-    $router->get('/', 'ProductController@getProducts');
-    $router->post('/add-product', 'ProductController@addProduct');
-    $router->post('/mass-delete', 'ProductController@deleteProducts');
+    $router->get('/', 'Controller@getProducts');
+    $router->post('/add-product', 'Controller@addProduct');
+    $router->post('/mass-delete', 'Controller@deleteProducts');
     $router->run();
   }
 
   public static function run(): void
   {
     Headers::set();
-    App::loadEnvVariables();
-    App::setroutes();
+    self::loadEnvVariables();
+    self::setroutes();
   }
 }
