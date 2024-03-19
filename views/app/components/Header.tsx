@@ -19,18 +19,19 @@ const Header: FC<HeaderProps> = ({ isHome = false }) => {
 			<div className='header-buttons'>
 				{isHome ? (
 					<>
-						<LinkButton text='ADD' href={PAGES.addProduct} />
+						<LinkButton text='ADD' title='Add new product' href={PAGES.addProduct} />
 						<SubmitButton
 							id='delete-product-btn'
 							label='MASS DELETE'
 							formName=''
 							onClick={massDelete}
+              title='Delete selected products'
 						/>
 					</>
 				) : (
 					<>
-						<SubmitButton label='Save' formName='product_form' />
-						<LinkButton text='Cancel' href={PAGES.home} />
+						<SubmitButton label='Save' title='Save product' formName='product_form' />
+						<LinkButton text='Cancel' title='Cancel process' href={PAGES.home} />
 					</>
 				)}
 			</div>

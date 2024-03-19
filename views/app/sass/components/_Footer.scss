@@ -3,24 +3,32 @@
   color: white;
   height: $footer-height;
 
+  &-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
   @include flex($jc: space-between);
   padding: 0 $desktop-margin;
 
   &-links {
-    @include flex($ga: 50px);
+    @include flex($ga: 30px);
   }
 
   &-link {
-    font-size: 26px;
+    font-size: 22px;
   }
 
-  &-icon,
   &-copyright {
     color: #ffffffcc;
+    font-size: 14px;
   }
-  &-icon:hover,
-  &-icon:focus {
-    color: white;
+  &-icon {
+    color: #ffffffcc;
+    &:hover,
+    &:focus {
+      color: white;
+    }
   }
 
   @include tablet {

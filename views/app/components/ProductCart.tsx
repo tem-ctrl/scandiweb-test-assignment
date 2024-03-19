@@ -30,7 +30,7 @@ const ProductCard = ({ sku, name, price, type, property }: ProductCardProps) => 
 	return (
 		<div className={`${checked ? 'product-checked' : ''} product`}>
 			<div className='product-checkbox'>
-				<label className='switch'>
+				<label className='switch' title={checked ? 'Uncheck to avoid deletion' : 'Check to delete'}>
           <span className='sr-only'>{sku}</span>
 					<input
 						type='checkbox'
