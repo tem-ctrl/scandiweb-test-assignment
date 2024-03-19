@@ -1,0 +1,33 @@
+#product_form {
+	@include flex($di: column, $ga: 0px);
+	@include rectangle($w: 70%, $h: max-content);
+	max-width: 500px;
+	min-width: 320px;
+	margin-right: 100px;
+
+	@include tablet {
+		margin: 0;
+	}
+
+	@include phone {
+		@include rectangle($w: 100%, $h: fit-content);
+	}
+}
+
+.required {
+	font-style: italic;
+	color: $color-danger;
+	font-size: 17px;
+	margin-bottom: 2px;
+}
+
+.special {
+	position: relative;
+	top: 12px;
+	color: #1a1919;
+  margin-bottom: 16px;
+}
+
+#productType {
+  margin-bottom: 10px;
+}

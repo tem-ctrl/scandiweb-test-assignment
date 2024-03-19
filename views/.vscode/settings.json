@@ -1,0 +1,18 @@
+{
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"search.exclude": {
+		"**/.yarn": true,
+		"**/.pnp.*": true
+	},
+	"editor.tabSize": 2,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"prettier.useTabs": true,
+	"prettier.endOfLine": "lf",
+	"editor.rulers": [100],
+	"typescript.format.semicolons": "insert",
+	"typescript.preferences.quoteStyle": "single",
+	"javascript.preferences.quoteStyle": "single",
+	"editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+	"files.eol": "\n"
+}

@@ -1,0 +1,30 @@
+@mixin flex($di: row, $jc: space-between, $ai: center, $wr: nowrap, $ga: normal) {
+	display: flex;
+	flex-direction: $di;
+	justify-content: $jc;
+	align-items: $ai;
+	flex-wrap: $wr;
+	gap: $ga;
+}
+
+@mixin rectangle($h: 100%, $w: 100%) {
+	height: $h;
+	width: $w;
+}
+
+@mixin square($sz: 100%) {
+	@include rectangle($sz, $sz);
+}
+
+// Media queries
+@mixin tablet {
+	@media screen and (max-width: $tablet-desktop-breakpoint) {
+		@content;
+	}
+}
+
+@mixin phone {
+	@media screen and (max-width: $phone-tablet-breakpoint) {
+		@content;
+	}
+}

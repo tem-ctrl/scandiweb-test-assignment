@@ -1,0 +1,19 @@
+.home {
+  @include flex($wr: wrap, $ga: 20px, $jc: center, $ai: flex-start);
+  &-empty {
+    @include flex($di: column, $jc: center, $ga: 20px);
+    text-align: center;
+    align-self: center;
+    color: $color-primary;
+
+    &-title {
+      font-size: 48px;
+    }
+  }
+  &-error {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+  }
+}

@@ -13,7 +13,7 @@ use App\Utils\HttpResponse;
 
 class Products
 {
-  public static function get(): array | string
+  public static function get($skus = false)
   {
     try {
       $dvds = Dvd::getAll();
@@ -24,19 +24,20 @@ class Products
       // Sort products by sku value
       usort($allProducts,  fn ($a, $b) =>  strcmp($a['sku'], $b['sku']));
       // Replace response by view once ready
-      // http_response_code(200);
-      // echo json_encode($allProducts);
-      return $allProducts;
+      http_response_code(200);
+      echo json_encode($allProducts);
+      // array_map(fn ($p) => $skus ? $p->sku : $p, $allProducts)
+      return;
     } catch (\Exception $e) {
       HttpResponse::dbError($e->getMessage());
-      return $e -> getMessage();
+      return;
     }
   }
 
   public static function add(): void
   {
     $data = $_POST;
-    $floats = array_merge(...array_values(Constants::PROPERTY_MAP));
+    $floats = array_merge(['price'], ...array_values(Constants::PROPERTY_MAP));
     $keys = array_keys($data);
     foreach ($floats as $f) {
       in_array($f, $keys) && $data[$f]  = (float) $data[$f];

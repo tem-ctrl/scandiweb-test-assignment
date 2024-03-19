@@ -1,0 +1,77 @@
+.label {
+	@include rectangle($w: 100%, $h: fit-content);
+	@include flex($jc: space-between);
+	font-size: 18px;
+
+	&-text {
+		align-self: flex-start;
+		position: relative;
+		bottom: 8px;
+    &-select {
+      bottom: -5px !important;
+    }
+	}
+
+	&-body {
+		@include flex($jc: flex-start, $ga: 0px, $di: column);
+		@include rectangle($w: 70%, $h: fit-content);
+		&-desc,
+		&-error {
+			align-self: flex-start;
+			color: #575454;
+			font-size: 14px;
+      margin-top: 0px;
+		}
+		&-error {
+			color: $color-danger;
+      height: 15px;
+			&-none {
+				opacity: 0;
+			}
+		}
+	}
+
+	&-input{
+		@include rectangle($h: 40px, $w: 100%);
+		font-size: 18px;
+		border-radius: 5px;
+    border: solid 1.5px $color-primary;
+		padding-left: 10px;
+    outline: none;
+		&:hover,
+		&:focus {
+			border-color: $color-secondary;
+			outline: none;
+			box-shadow: 0 0 3px 2px $color-secondary;
+		}
+		&-error {
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 3px 2px $color-danger !important;
+			}
+			border-color: $color-danger;
+		}
+	}
+	&-desc {
+		font-size: 15px;
+		color: #1a1919;
+	}
+	@include phone {
+		flex-direction: column;
+    font-size: 16px;
+    gap: 0;
+		&-input,
+		&-select {
+			width: 100%;
+      font-size: 16px;
+		}
+		&-body {
+			flex-direction: column;
+			width: 100%;
+			gap: 2px;
+		}
+		&-text {
+			position: initial;
+		}
+	}
+}

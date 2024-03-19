@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Utils\Constants;
+// use App\Utils\Constants;
 use App\Utils\ProductType;
 use App\Models\ProductTrait;
 use App\Models\AbstractProduct;
@@ -30,10 +30,10 @@ class Book extends AbstractProduct
   {
     try {
       $books = self::findAll(ProductType::BOOK);
-      foreach ($books as &$book) {
-        $book += [Constants::EXTRA_ATTRIBUTE_KEY => $book['weight'] . ' KG'];
-        unset($book['weight']);
-      }
+      // foreach ($books as &$book) {
+      //   $book += [Constants::EXTRA_ATTRIBUTE_KEY => $book['weight'] . ' KG'];
+      //   unset($book['weight']);
+      // }
       return $books;
     } catch (\Exception $e) {
       self::trowDbError($e);

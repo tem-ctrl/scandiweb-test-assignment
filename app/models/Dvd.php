@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Utils\Constants;
+// use App\Utils\Constants;
 use App\Utils\ProductType;
 use App\Models\ProductTrait;
 use App\Models\AbstractProduct;
@@ -30,10 +30,10 @@ class Dvd extends AbstractProduct
   {
     try {
       $dvds = self::findAll(ProductType::DVD);
-      foreach ($dvds as &$dvd) {
-        $dvd += [Constants::EXTRA_ATTRIBUTE_KEY => $dvd['size'] . ' MB'];
-        unset($dvd['size']);
-      }
+      // foreach ($dvds as &$dvd) {
+      //   $dvd += [Constants::EXTRA_ATTRIBUTE_KEY => $dvd['size'] . ' MB'];
+      //   unset($dvd['size']);
+      // }
       return $dvds;
     } catch (\Exception $e) {
       self::trowDbError($e);

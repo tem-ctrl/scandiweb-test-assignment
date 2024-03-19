@@ -1,0 +1,34 @@
+.button {
+  line-height: 220%;
+  min-width: 110px;
+  border-radius: 5px;
+  background-color: $color-bg;
+  border-color: $color-primary;
+  border-width: 1px;
+  font-size: 18px;
+  padding: 0 20px;
+  box-sizing: content-box;
+  cursor: pointer;
+  &,
+  &-link {
+    color: $color-secondary;
+    font-weight: 600;
+  }
+
+  &-link {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $color-secondary;
+    color: $color-bg;
+    & > .link {
+      color: $color-bg;
+    }
+  }
+
+  @include phone {
+    line-height: 200%;
+    font-size: 15px;
+  }
+}

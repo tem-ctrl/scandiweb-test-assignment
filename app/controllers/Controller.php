@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Routes\Router;
+// use App\Routes\Router;
 use App\Models\Products;
 
 class Controller
 {
   public static function getProducts(): void
   {
-    Router::get('index.html', ['products' => Products::get()]);
+    Products::get();
   }
 
   public static function addProduct(): void

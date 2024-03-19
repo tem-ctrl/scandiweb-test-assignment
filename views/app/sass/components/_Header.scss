@@ -1,0 +1,27 @@
+.header {
+  @include flex();
+  padding: 0 $desktop-margin;
+  color: $color-secondary;
+  box-shadow: 0px 4px 6px $color-secondary;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: white;
+  height: $header-height;
+
+  &-buttons {
+    @include flex($ga: 30px, $jc: center);
+  }
+
+  @include phone {
+    flex-direction: column;
+    height: max-content;
+    padding: 0 $phone-margin 10px;
+    font-size: 14px;
+
+    &-buttons {
+      gap: 5px;
+    }
+  }
+}

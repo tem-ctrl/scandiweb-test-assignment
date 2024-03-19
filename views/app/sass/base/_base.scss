@@ -1,0 +1,41 @@
+html,
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  min-height: calc(100vh - $header-height - $footer-height);
+  padding: 45px $desktop-margin;
+
+  @include tablet {
+    padding: 30px $tablet-margin;
+    min-height: calc(100vh - $header-height - $footer-height-tablet);
+  }
+
+  @include phone {
+    pading: 20px $phone-margin;
+    min-height: calc(100vh - $header-height-phone - $footer-height-phone);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

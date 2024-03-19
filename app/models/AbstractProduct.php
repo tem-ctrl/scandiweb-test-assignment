@@ -7,8 +7,8 @@ abstract class AbstractProduct
   public function __construct(
     protected string $sku,
     protected string $name,
-    protected string $type,
     protected float $price,
+    protected string $type,
   ) { }
 
   abstract protected function save(): void;

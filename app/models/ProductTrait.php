@@ -20,13 +20,15 @@ trait ProductTrait
 
     if (gettype($isValid) === 'string') {
       HttpResponse::invalidData($isValid);
-
       return;
     }
 
+    $db = new Db();
+    $dbConn = $db->connect();
+
     $sqlValueString = join(', ', array_map(fn ($item) => ":" . $item, array_keys($data)));
     $sql = "INSERT INTO $dbTable VALUES ($sqlValueString)";
-    $stmt = $this->dbConn->prepare($sql, [\PDO::ATTR_CURSOR => \PDO::CURSOR_FWDONLY]);
+    $stmt = $dbConn->prepare($sql, [\PDO::ATTR_CURSOR => \PDO::CURSOR_FWDONLY]);
     try {
       $stmt->execute($data);
       HttpResponse::added();
@@ -44,7 +46,7 @@ trait ProductTrait
     $stmt = $dbConn->query($sql);
     $products = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-    return $products;
+    return array_map(fn ($p) => $p += ['type' => $dbTable], $products);
   }
 
   public static function trowDbError(\Exception $e)
