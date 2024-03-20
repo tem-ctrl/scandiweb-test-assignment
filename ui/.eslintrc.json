@@ -18,7 +18,7 @@
 		],
 		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
 		"react-hooks/rules-of-hooks": ["error"],
-		"react-hooks/exhaustive-deps": "on",
+		"react-hooks/exhaustive-deps": "off",
 		"max-lines": ["error", { "max": 500, "skipBlankLines": false, "skipComments": false }],
 		"max-len": [
 			"error",
