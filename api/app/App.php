@@ -7,6 +7,7 @@ ini_set('display_errors', 1); // Set it to 0 in production
 
 use Dotenv\Dotenv;
 use App\Utils\Headers;
+use App\Utils\Constants;
 use Bramus\Router\Router;
 
 class App
@@ -29,6 +30,7 @@ class App
 
   public static function run(): void
   {
+    echo Constants::EXTRA_ATTRIBUTE_KEY;
     Headers::set();
     self::loadEnvVariables();
     self::setroutes();
