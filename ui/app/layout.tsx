@@ -1,11 +1,11 @@
-import './globals.scss';
+import 'app/globals.scss';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Inter } from 'next/font/google';
-import Footer from '@/app/components/Footer';
-import AppProvider from '@/app/providers/AppProvider'
+import Footer from 'app/components/Footer';
+import AppProvider from 'app/providers/AppProvider'
 import type { Metadata } from 'next';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
 	title: 'Scandiweb Junior Developer Test Assignment',

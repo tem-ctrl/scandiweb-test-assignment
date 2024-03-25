@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
-import { Product, ProductType } from '@/app/utils/types';
-import { ERRORS, PROPERTY_MAP } from '@/app/utils/constants';
+import { Product, ProductType } from 'app/utils/types';
+import { ERRORS, PROPERTY_MAP } from 'app/utils/constants';
 
 /**
  * Create default form values base on product type

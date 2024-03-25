@@ -1,24 +1,24 @@
 'use client';
 
 import React, { FC, FormEvent, useEffect, useState } from 'react';
-import { Product, ProductType } from '@/app/utils/types';
-import FormTextInput from '@/app/components/FomTextInput';
-import SelectProductType from '@/app/components/SelectProductType';
+import { Product, ProductType } from 'app/utils/types';
+import FormTextInput from 'app/components/FomTextInput';
+import SelectProductType from 'app/components/SelectProductType';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
-import { API } from '@/app/config/api';
+import { API } from 'app/config/api';
 import useSWR from 'swr';
-import { TOAST_OPTIONS } from '@/app/utils/constants';
-import { sanitizeData } from '@/app/utils';
-import { PAGES } from '@/app/config/routes';
+import { TOAST_OPTIONS } from 'app/utils/constants';
+import { sanitizeData } from 'app/utils';
+import { PAGES } from 'app/config/routes';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import {
 	AddProductFormFields,
 	addProductFormSchema,
 	setDefaultFormValues,
-} from '@/app/utils/resolvers';
+} from 'app/utils/resolvers';
 
 interface AddProductFormProps {
 	className?: string;

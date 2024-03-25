@@ -75,7 +75,7 @@
 			{
 				"patterns": [
 					{
-						"group": ["../*"],
+						"group": ["../*", "./*"],
 						"message": "Usage of relative parent imports is not allowed."
 					}
 				]
@@ -98,7 +98,7 @@
 		"import/resolver": {
 			"node": {
 				"extensions": [".js", ".jsx", ".ts", ".tsx"],
-				"moduleDirectory": ["node_modules", "app/"]
+				"moduleDirectory": ["./node_modules", "./app/"]
 			}
 		}
 	}

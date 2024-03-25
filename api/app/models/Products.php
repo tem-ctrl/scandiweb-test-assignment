@@ -23,10 +23,9 @@ class Products
 
       // Sort products by sku value
       usort($allProducts,  fn ($a, $b) =>  strcmp($a['sku'], $b['sku']));
-      // Replace response by view once ready
+
       http_response_code(200);
       echo json_encode($allProducts);
-      // array_map(fn ($p) => $skus ? $p->sku : $p, $allProducts)
       return;
     } catch (\Exception $e) {
       HttpResponse::dbError($e->getMessage());

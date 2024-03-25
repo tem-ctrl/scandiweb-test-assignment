@@ -1,10 +1,10 @@
 'use client';
 
 import React, { ReactNode, useMemo, useState, createContext, useContext, FC } from 'react';
-import { API } from '@/app/config/api';
+import { API } from 'app/config/api';
 import axios from 'axios';
 import useSWR from 'swr';
-import { Product, ToDeleteListType, ProductToDelete } from '@/app/utils/types';
+import { Product, ToDeleteListType, ProductToDelete } from 'app/utils/types';
 
 type ProductContextType = {
 	toDeleteList: ToDeleteListType;

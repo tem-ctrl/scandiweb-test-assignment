@@ -6,10 +6,7 @@
 	&-text {
 		align-self: flex-start;
 		position: relative;
-		bottom: 8px;
-    &-select {
-      bottom: -5px !important;
-    }
+		bottom: -5px;
 	}
 
 	&-body {
