@@ -21,7 +21,7 @@ const SelectProductType = forwardRef<HTMLSelectElement, SelectProductTypeProps>(
 
 	return (
 		<label className={`${className} label`}>
-			<span className='label-text label-text-select'>{label}</span>
+			<span className='label-text'>{label}</span>
 			<div className='label-body'>
 				<select
 					id='productType'

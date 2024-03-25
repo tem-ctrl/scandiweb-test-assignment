@@ -1,6 +1,7 @@
 html,
 body {
   margin: 0;
+  padding: 0;
 }
 
 * {
@@ -9,7 +10,7 @@ body {
 
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .main {
@@ -20,11 +21,13 @@ body {
   @include tablet {
     padding: 30px $tablet-margin;
     min-height: calc(100vh - $header-height - $footer-height-tablet);
+    scrollbar: none;
   }
 
   @include phone {
     pading: 20px $phone-margin;
     min-height: calc(100vh - $header-height-phone - $footer-height-phone);
+    scrollbar: none;
   }
 }
 
