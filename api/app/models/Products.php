@@ -13,7 +13,7 @@ use App\Utils\HttpResponse;
 
 class Products
 {
-  public static function get()
+  public static function get($skus = false)
   {
     try {
       $dvds = Dvd::getAll();
@@ -23,7 +23,7 @@ class Products
 
       // Sort products by sku value
       usort($allProducts,  fn ($a, $b) =>  strcmp($a['sku'], $b['sku']));
-      
+
       http_response_code(200);
       echo json_encode($allProducts);
       return;
