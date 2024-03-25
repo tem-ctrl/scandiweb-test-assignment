@@ -1,4 +1,4 @@
-import { Product, ProductCardProps, ProductType } from '@/app/utils/types';
+import { Product, ProductCardProps, ProductType } from 'app/utils/types';
 
 /**
  * Prepare received data for displaying on the homepage

@@ -1,9 +1,9 @@
 'use client';
 
 import React, { ChangeEvent, useState } from 'react';
-import { PROPERTY_MAP } from '@/app/utils/constants';
-import { ProductType, ProductCardProps } from '@/app/utils/types';
-import useProductContext from '@/app/providers/ProductContextProvider';
+import { PROPERTY_MAP } from 'app/utils/constants';
+import { ProductType, ProductCardProps } from 'app/utils/types';
+import useProductContext from 'app/providers/ProductContextProvider';
 
 const ProductCard = ({ sku, name, price, type, property }: ProductCardProps) => {
 	const { toDeleteList, addToDeleteList, removeFromDeleteList } = useProductContext();

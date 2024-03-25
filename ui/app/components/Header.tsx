@@ -1,10 +1,10 @@
 'use client';
 
 import React, { FC } from 'react';
-import { PAGES } from '@/app/config/routes';
-import LinkButton from '@/app/components/LinkButton';
-import SubmitButton from '@/app/components/SubmitButton';
-import useProductContext from '@/app/providers/ProductContextProvider';
+import { PAGES } from 'app/config/routes';
+import LinkButton from 'app/components/LinkButton';
+import SubmitButton from 'app/components/SubmitButton';
+import useProductContext from 'app/providers/ProductContextProvider';
 
 interface HeaderProps {
   isHome?: boolean;

@@ -1,5 +1,5 @@
-import { PROPERTY_MAP } from '@/app/utils/constants';
-import { ProductType } from '@/app/utils/types';
+import { PROPERTY_MAP } from 'app/utils/constants';
+import { ProductType } from 'app/utils/types';
 import React, { forwardRef, SelectHTMLAttributes, SetStateAction } from 'react';
 
 interface SelectProductTypeProps extends SelectHTMLAttributes<HTMLSelectElement> {

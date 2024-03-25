@@ -1,4 +1,4 @@
-import { ProductType, ProductProperties } from '@/app/utils/types';
+import { ProductType, ProductProperties } from 'app/utils/types';
 import { toast } from 'react-toastify';
 
 export const FIXED_ATTRIBUTES = ['sku', 'name', 'price', 'type'];

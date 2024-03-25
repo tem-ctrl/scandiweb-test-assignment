@@ -1,8 +1,8 @@
 import './globals.scss';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Inter } from 'next/font/google';
-import Footer from '@/app/components/Footer';
-import AppProvider from '@/app/providers/AppProvider'
+import Footer from 'app/components/Footer';
+import AppProvider from 'app/providers/AppProvider'
 import type { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });

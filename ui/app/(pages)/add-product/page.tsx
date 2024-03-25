@@ -1,5 +1,5 @@
-import AddProductForm from '@/app/components/AddProductForm';
-import Header from '@/app/components/Header';
+import AddProductForm from 'app/components/AddProductForm';
+import Header from 'app/components/Header';
 import { Metadata, NextPage } from 'next';
 
 const AddProductPage: NextPage = () => {
