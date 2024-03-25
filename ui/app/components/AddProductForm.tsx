@@ -42,9 +42,7 @@ const AddProductForm: FC<AddProductFormProps> = ({ className = '' }) => {
 	};
 
 	// Generate default values on product type change
-	useEffect(() => {
-		setDefaultValues(setDefaultFormValues(productType));
-	}, [productType]);
+	useEffect(() => setDefaultValues(setDefaultFormValues(productType)), [productType]);
 
 	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
