@@ -11,9 +11,9 @@ import useSWR from 'swr';
 
 
 const ProductsList: FC = () => {
-	const { data: products } = useSWR<Product[]>(API.getProducts);
+	const { data: products, isLoading } = useSWR<Product[]>(API.getProducts);
 
-  if (!products) return <main className='main home'></main>;
+  if (!products || isLoading) return <main className='main home'></main>;
 
 	return (
 		<main className='main home'>
@@ -23,7 +23,7 @@ const ProductsList: FC = () => {
           .map((product) => <ProductCard key={product.sku} {...product} />)
       ) : (
         <div className='home-empty'>
-          <h2 className='home-empty-title'>No product found !</h2>
+          <h2 className='home-empty-title'>No products found !</h2>
           <LinkButton text='Add New Product' href={PAGES.addProduct} />
         </div>
       )}

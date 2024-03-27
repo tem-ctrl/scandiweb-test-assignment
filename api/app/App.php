@@ -17,7 +17,7 @@ class App
     $dotenv->safeLoad();
   }
 
-  private static function setroutes(): void
+  private static function setRoutes(): void
   {
     $router = new Router();
     $router->setNamespace('App\Controllers');
@@ -31,6 +31,6 @@ class App
   {
     Headers::set();
     self::loadEnvVariables();
-    self::setroutes();
+    self::setRoutes();
   }
 }
