@@ -35,16 +35,21 @@ class Products
 
   public static function add(): void
   {
-    $data = $_POST;
-    $floats = array_merge(['price'], ...array_values(Constants::PROPERTY_MAP));
-    $keys = array_keys($data);
-    foreach ($floats as $f) {
-      in_array($f, $keys) && $data[$f]  = (float) $data[$f];
-    }
+    try {
+      $data = $_POST;
+      $floats = array_merge(['price'], ...array_values(Constants::PROPERTY_MAP));
+      $keys = array_keys($data);
+      foreach ($floats as $f) {
+        in_array($f, $keys) && $data[$f]  = (float) $data[$f];
+      }
 
-    $class = "App\\Models\\" . ucfirst($data['type']);
-    $product = new $class(...array_values($data));
-    $product->save();
+      $class = "App\\Models\\" . ucfirst($data['type']);
+      $product = new $class(...array_values($data));
+      $product->save();
+    } catch (\Exception $e) {
+      HttpResponse::dbError($e->getMessage());
+      return;
+    }
   }
 
   public static function delete(): void
