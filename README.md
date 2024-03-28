@@ -1,6 +1,6 @@
 # Scandiweb Junior Developer Test Task 
 
-[view site](https://gtemgoua-scandiweb-test.000webhostapp.com/)
+[view site](https://scandiweb-test-gtemgoua.great-site.net)
 
 
 This assignment tests minimum skills and knowledge required to successfully kick start your career at Scandiweb. It helps them to assess your level and it helps you to check whether your level is already good to join us as a Junior Developer.
