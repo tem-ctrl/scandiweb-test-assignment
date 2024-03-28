@@ -13,14 +13,14 @@ import useSWR from 'swr';
 const ProductsList: FC = () => {
 	const { data: products, isLoading } = useSWR<Product[]>(API.getProducts);
 
-  if (!products || isLoading) return <main className='main home'></main>;
+  if (!products || isLoading || !Array.isArray(products)) return <main className='main home'></main>;
 
 	return (
 		<main className='main home'>
       {products.length > 0 ? (
         products
           .map(prepareData)
-          .map((product) => <ProductCard key={product.sku} {...product} />)
+          .map((p) => <ProductCard key={p.sku} {...p} />)
       ) : (
         <div className='home-empty'>
           <h2 className='home-empty-title'>No products found !</h2>

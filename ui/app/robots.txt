@@ -2,4 +2,4 @@ User-Agent: *
 Allow: /
 Disallow: /private/
 
-Sitemap: https://gtemgoua-scandiweb-test.000webhostapp.com/sitemap.xml
+Sitemap: https://scandiweb-test-gtemgoua.great-site.net/sitemap.xml
