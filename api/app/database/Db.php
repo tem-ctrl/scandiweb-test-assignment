@@ -24,18 +24,12 @@ class Db
     }
   }
 
-  private static function getInstance(): Db
+  public static function getConnection(): \PDO
   {
     if (!self::$instance) {
       self::$instance = new Db();
     }
 
-    return self::$instance;
-  }
-
-  public static function getConnection(): \PDO
-  {
-    $instance = self::getInstance();
-    return $instance->conn;
+    return self::$instance->conn;
   }
 }
