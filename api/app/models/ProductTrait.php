@@ -10,7 +10,6 @@ use App\Utils\ValidationSchema;
 
 trait ProductTrait
 {
-
   public function save(): void
   {
     $data = $this->getData();
@@ -23,12 +22,11 @@ trait ProductTrait
       return;
     }
 
-    $db = new Db();
-    $dbConn = $db->connect();
+    $dbConn = Db::getConnection();
 
     $sqlValueString = join(', ', array_map(fn ($item) => ":" . $item, array_keys($data)));
     $sql = "INSERT INTO $dbTable VALUES ($sqlValueString)";
-    $stmt = $dbConn->prepare($sql, [\PDO::ATTR_CURSOR => \PDO::CURSOR_FWDONLY]);
+    $stmt = $dbConn->prepare($sql);
     try {
       $stmt->execute($data);
       HttpResponse::added();
@@ -39,8 +37,7 @@ trait ProductTrait
 
   public static function findAll(string $dbTable): array
   {
-    $db = new Db();
-    $dbConn = $db->connect();
+    $dbConn = Db::getConnection();
 
     $sql = "SELECT * FROM $dbTable";
     $stmt = $dbConn->query($sql);

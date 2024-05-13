@@ -13,7 +13,7 @@ use App\Utils\HttpResponse;
 
 class Products
 {
-  public static function get($skus = false)
+  public static function get()
   {
     try {
       $dvds = Dvd::getAll();
@@ -55,8 +55,7 @@ class Products
   public static function delete(): void
   {
     try {
-      $db = new Db();
-      $dbConn = $db->connect();
+      $dbConn = Db::getConnection();
       $data = $_POST;
 
       foreach (array_keys($data) as $db) {
